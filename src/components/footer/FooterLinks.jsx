@@ -10,10 +10,11 @@ const FooterLinks = () => {
         <ul key={item.id}>
           <li className="link">
             <h5>{item.name}</h5>
-
-            {item.subLinks.map(subItem => (
-              <FooterLinkItem key={subItem.id} name={subItem.name} />
-            ))}
+            <ul>
+              {item.subLinks.map(subItem => (
+                <FooterLinkItem key={subItem.id} name={subItem.name} />
+              ))}
+            </ul>
           </li>
         </ul>
       ))}

@@ -1,44 +1,18 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import { mediaQuery } from '../../utils/styles-values';
 import MenuItem from './MenusItem';
 
-const menus = [
-  {
-    id: 1,
-    title: 'home',
-    url: '#hero',
-  },
-  {
-    id: 2,
-    title: 'about',
-    url: '#about',
-  },
-  {
-    id: 3,
-    title: 'services',
-    url: '#services',
-  },
-  {
-    id: 4,
-    title: 'our work',
-    url: '#our-work',
-  },
-  {
-    id: 5,
-    title: 'contact us',
-    url: '#contact-us',
-  },
-];
-
 const Menus = ({ isShowMenu, setIsShowMenu }) => {
   const [selected, setSelected] = useState('home');
+  const { menus } = useSelector(store => store.menu);
 
   return (
     <MenusWrapper isShowMenu={isShowMenu}>
       {menus.map(item => (
         <MenuItem
-          key={item.id}
+          key={item._id}
           {...item}
           selected={selected}
           setSelected={setSelected}
