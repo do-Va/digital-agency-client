@@ -1,3 +1,4 @@
+import axios from 'axios';
 import customFetch from '../../utils/customFetch';
 
 export const getAllItemsThunk = async (url, thunkAPI) => {
@@ -35,6 +36,19 @@ export const deleteItemThunk = async (url, thunkAPI) => {
     const resp = await customFetch.delete(url);
 
     console.log(resp.data);
+    return resp.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const uploadImageThunk = async (data, thunkAPI) => {
+  try {
+    const resp = await axios.post(
+      'https://api.cloudinary.com/v1_1/dova/image/upload',
+      data
+    );
+
     return resp.data;
   } catch (error) {
     console.log(error);

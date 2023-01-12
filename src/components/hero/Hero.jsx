@@ -1,19 +1,26 @@
+import { useSelector } from 'react-redux';
+import { useRef, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { Button, Image } from '../_custom';
-import imageUrl from '../../assets/office-desk.png';
 import { mediaQuery } from '../../utils/styles-values';
+import convertHtml from '../../utils/convertHtml';
 
 const Hero = () => {
+  const titleRef = useRef(null);
+  const { hero, heroLoader } = useSelector(store => store.hero);
+
+  useEffect(() => {
+    !heroLoader && (titleRef.current.innerHTML = convertHtml(hero?.title));
+  }, [hero, heroLoader]);
+
   return (
     <HeroWrapper id="hero">
       <div className="max-container">
         <div className="hero-content">
-          <h1>
-            We help to <br /> Create <span>Brands</span> <br /> With Coffee
-          </h1>
+          <h1 ref={titleRef} />
 
           <Button
-            content="See our work"
+            content={hero?.buttonContent}
             minHeight="52px"
             maxHeight="71px"
             minWidth="144px"
@@ -22,7 +29,7 @@ const Hero = () => {
         </div>
 
         <Image
-          url={imageUrl}
+          url={hero?.image}
           minWidth="203px"
           maxWidth="508px"
           margin="60px 0px 0px"
