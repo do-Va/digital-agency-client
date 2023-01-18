@@ -1,58 +1,28 @@
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import { mediaQuery } from '../../utils/styles-values';
 import ServiceListItem from './ServiceListItem';
 
 const ServiceList = () => {
-  const services = [
-    {
-      id: 1,
-      number: '01',
-      title: 'Digital Illustration',
-      desc: 'But I must explain to you how all this mistaken idea of denouncing pleasure',
-    },
-    {
-      id: 2,
-      number: '02',
-      title: 'Website design & development',
-      desc: 'But I must explain to you how all this mistaken idea of denouncing pleasure',
-    },
-    {
-      id: 3,
-      number: '03',
-      title: 'Social media management',
-      desc: 'But I must explain to you how all this mistaken idea of denouncing pleasure',
-    },
-    {
-      id: 4,
-      number: '04',
-      title: 'Content writing',
-      desc: 'But I must explain to you how all this mistaken idea of denouncing pleasure',
-    },
-    {
-      id: 5,
-      number: '05',
-      title: 'Video Production',
-      desc: 'But I must explain to you how all this mistaken idea of denouncing pleasure',
-    },
-    {
-      id: 6,
-      number: '06',
-      title: 'Social media marketing',
-      desc: 'But I must explain to you how all this mistaken idea of denouncing pleasure',
-    },
-  ];
+  const { serviceList } = useSelector(store => store.service);
+  let service = [...serviceList];
 
   return (
     <ServiceListWrapper>
       <div className="right">
-        {services.splice(0, Math.floor(services.length / 2)).map(item => (
-          <ServiceListItem key={item.id} {...item} />
+        {service.splice(0, Math.floor(service.length / 2)).map((item, idx) => (
+          <ServiceListItem key={item._id} {...item} number={'0' + (idx + 1)} />
         ))}
       </div>
 
       <div className="left">
-        {services.splice(0).map(item => (
-          <ServiceListItem key={item.id} {...item} />
+        {service.splice(0).map((item, idx) => (
+          <ServiceListItem
+            key={item._id}
+            {...item}
+            number={'0' + (idx + 1 * (service.length + 2 * 2))}
+          />
         ))}
       </div>
     </ServiceListWrapper>

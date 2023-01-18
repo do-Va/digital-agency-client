@@ -1,14 +1,14 @@
 import styled from 'styled-components/macro';
 import { mediaQuery } from '../../utils/styles-values';
 
-const ServiceListItem = ({ number, title, desc }) => {
+const ServiceListItem = ({ number, title, description }) => {
   return (
     <ServiceListItemWrapper>
       <p className="number">{number}</p>
 
       <div className="content">
         <h4>{title}</h4>
-        <p>{desc}</p>
+        <p>{description}</p>
       </div>
     </ServiceListItemWrapper>
   );
