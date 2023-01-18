@@ -1,17 +1,19 @@
 import styled from 'styled-components/macro';
 import { mediaQuery } from '../../utils/styles-values';
 import { Image } from '../_custom';
-import imageUrl from '../../assets/interface-testing.png';
 import AboutContent from './AboutContent';
+import { useSelector } from 'react-redux';
 
 const About = () => {
+  const { about } = useSelector(store => store.about);
+
   return (
     <AboutWrapper id="about">
       <div className="max-container">
         <AboutContent />
 
         <Image
-          url={imageUrl}
+          url={about?.image}
           minWidth="203px"
           maxWidth="508px"
           margin="60px 0px 0px"

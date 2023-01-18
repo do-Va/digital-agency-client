@@ -1,29 +1,27 @@
 import { useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
+import convertHtml from '../../utils/convertHtml';
 import { mediaQuery } from '../../utils/styles-values';
 import { Title, Button } from '../_custom';
 
 const AboutContent = () => {
-  const text =
-    '<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system.</p><p>I wrote to let them know ready to came back they kicked me of their team slack all of us are make company email.</p>';
+  const { about, aboutLoader } = useSelector(store => store.about);
 
   const textRef = useRef(null);
-
   useEffect(() => {
-    textRef.current.innerHTML = text;
-  }, [text]);
+    !aboutLoader &&
+      (textRef.current.innerHTML = convertHtml(about?.description));
+  }, [about.description, aboutLoader]);
 
   return (
     <AboutContentWrapper>
-      <Title
-        text="Powered by <br/> <span>talented people</span>"
-        align="center"
-      />
+      <Title text={about?.title} align="center" />
 
       <div className="content-text" ref={textRef} />
 
       <Button
-        content="Learn more"
+        content={about?.buttonContent}
         minHeight="52px"
         maxHeight="71px"
         minWidth="133px"

@@ -1,11 +1,11 @@
 import styled from 'styled-components/macro';
 import { mediaQuery } from '../../utils/styles-values';
 
-const TeamMember = ({ name, title, url }) => {
+const TeamMember = ({ name, title, image }) => {
   return (
     <TeamMemberWrapper>
       <div className="img-container">
-        <img src={url} alt={name} />
+        <img src={image} alt={name} />
       </div>
       <h4 className="name">{name}</h4>
       <h5 className="title">{title}</h5>
