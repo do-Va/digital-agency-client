@@ -7,6 +7,7 @@ import { getAllServiceList, getService } from './redux/home/serviceSlice';
 import { getAllOurTeams } from './redux/home/ourTeamSlice';
 
 import Home from './pages/Home';
+import { getAllOurWorks } from './redux/home/ourWorkSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function App() {
     dispatch(getService('/service'));
     dispatch(getAllServiceList('/service/list'));
     dispatch(getAllOurTeams('/our-teams'));
+    dispatch(getAllOurWorks('/our-works'));
   }, [dispatch]);
 
   return (

@@ -3,5 +3,13 @@ import menuSlice from './home/menuSlice';
 import heroSlice from './home/heroSlice';
 import serviceSlice from './home/serviceSlice';
 import ourTeamSlice from './home/ourTeamSlice';
+import ourWorkSlice from './home/ourWorkSlice';
 
-export { aboutSlice, menuSlice, heroSlice, serviceSlice, ourTeamSlice };
+export {
+  aboutSlice,
+  menuSlice,
+  heroSlice,
+  serviceSlice,
+  ourTeamSlice,
+  ourWorkSlice,
+};

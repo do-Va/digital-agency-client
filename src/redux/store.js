@@ -5,6 +5,7 @@ import {
   ourTeamSlice,
   aboutSlice,
   serviceSlice,
+  ourWorkSlice,
 } from '.';
 
 export const store = configureStore({
@@ -14,6 +15,7 @@ export const store = configureStore({
     about: aboutSlice,
     service: serviceSlice,
     ourTeam: ourTeamSlice,
+    ourWork: ourWorkSlice,
   },
 
   // devtoolsu production'da gösterme

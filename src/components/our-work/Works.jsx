@@ -1,18 +1,20 @@
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
-import works from '../../temporary/works';
 import { mediaQuery } from '../../utils/styles-values';
 import WorkItem from './WorkItem';
 
 const Works = ({ selectedCategory }) => {
+  const { ourWorks } = useSelector(store => store.ourWork);
+
   const array =
     selectedCategory !== 'All'
-      ? works.filter(item => item.category === selectedCategory)
-      : works.slice(0, 6);
+      ? ourWorks?.filter(item => item.category === selectedCategory)
+      : ourWorks?.slice(0, 6);
 
   return (
     <WorksWrapper>
       {array.map((item, idx) => (
-        <WorkItem key={item.id} {...item} idx={idx} />
+        <WorkItem key={item._id} {...item} />
       ))}
     </WorksWrapper>
   );

@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro';
 import { mediaQuery } from '../../utils/styles-values';
 
-const WorkItem = ({ url, idx }) => {
+const WorkItem = ({ image, alt }) => {
   return (
     <WorkItemWrapper>
-      <img src={url} alt="" />
+      <img src={image} alt={alt} />
     </WorkItemWrapper>
   );
 };
