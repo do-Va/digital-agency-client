@@ -1,13 +1,18 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getAllMenus } from './redux/home/menuSlice';
-import { getHero } from './redux/home/heroSlice';
-import { getAbout } from './redux/home/aboutSlice';
-import { getAllServiceList, getService } from './redux/home/serviceSlice';
-import { getAllOurTeams } from './redux/home/ourTeamSlice';
 
 import Home from './pages/Home';
-import { getAllOurWorks } from './redux/home/ourWorkSlice';
+
+import {
+  getAbout,
+  getAllMenus,
+  getAllOurTeams,
+  getAllOurWorks,
+  getAllServiceList,
+  getAllTestimonials,
+  getHero,
+  getService,
+} from './redux/home';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +25,7 @@ function App() {
     dispatch(getAllServiceList('/service/list'));
     dispatch(getAllOurTeams('/our-teams'));
     dispatch(getAllOurWorks('/our-works'));
+    dispatch(getAllTestimonials('/testimonial'));
   }, [dispatch]);
 
   return (

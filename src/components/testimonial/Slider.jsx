@@ -1,9 +1,10 @@
 import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
-import testimonials from '../../temporary/testimonials';
 import { SliderItem, SliderButtons } from '.';
 
 const Slider = () => {
+  const { testimonials } = useSelector(store => store.testimonial);
   const sliderRef = useRef(null);
   const imagePadding = 34;
   let scrollAmount = 0;
@@ -58,7 +59,7 @@ const Slider = () => {
       <div className="max-container">
         <div className="slider-container" ref={sliderRef}>
           {testimonials.map(item => (
-            <SliderItem key={item.id} {...item} />
+            <SliderItem key={item._id} {...item} />
           ))}
         </div>
 
