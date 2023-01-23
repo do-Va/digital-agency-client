@@ -117,6 +117,18 @@ small, .text_small { font-size: var(--fs-sm); }
   max-width: var(--max-width);
   margin: 0 auto;
 }
+
+.content-container {
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  padding: 20px 20px;
+  border-radius: var(--radius);
+
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
 `;
 
 export default GlobalStyles;

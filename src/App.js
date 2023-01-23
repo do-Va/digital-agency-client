@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 
-import Home from './pages/Home';
+import { Home, Error } from './pages';
 
 import {
   getAbout,
@@ -33,9 +34,10 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
-      <Home />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<Error />} />
+    </Routes>
   );
 }
 
