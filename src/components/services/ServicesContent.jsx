@@ -1,24 +1,21 @@
 import { useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import { mediaQuery } from '../../utils/styles-values';
 import { Title, Button } from '../_custom';
 
 const ServiceContent = () => {
-  const text =
-    '<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system.';
+  const { service } = useSelector(store => store.service);
 
   const textRef = useRef(null);
 
   useEffect(() => {
-    textRef.current.innerHTML = text;
-  }, [text]);
+    textRef.current.innerHTML = service.description;
+  }, [service.description]);
 
   return (
     <ServiceContentWrapper>
-      <Title
-        text="We craft experiences for <br/> business to help reach <br/> <span>our customers</span>"
-        align="center"
-      />
+      <Title text={service?.title2} align="center" />
 
       <div className="content-text" ref={textRef} />
 

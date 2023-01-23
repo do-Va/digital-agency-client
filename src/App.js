@@ -12,6 +12,7 @@ import {
   getAllTestimonials,
   getHero,
   getService,
+  getContactUs,
 } from './redux/home';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     dispatch(getAllOurTeams('/our-teams'));
     dispatch(getAllOurWorks('/our-works'));
     dispatch(getAllTestimonials('/testimonial'));
+    dispatch(getContactUs('/contact-us'));
   }, [dispatch]);
 
   return (

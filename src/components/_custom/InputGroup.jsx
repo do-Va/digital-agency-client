@@ -1,14 +1,32 @@
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
 
-const InputGroup = ({ name, title, textarea }) => {
+const InputGroup = ({ name, title, textarea, method, value }) => {
+  const dispatch = useDispatch();
+
   return (
     <InputGroupWrapper>
       <label htmlFor={name}>{title}</label>
 
       {textarea ? (
-        <textarea name={name} id={name}></textarea>
+        <textarea
+          name={name}
+          id={name}
+          value={value || ''}
+          onChange={evn =>
+            dispatch(method({ name: evn.target.name, value: evn.target.value }))
+          }
+        ></textarea>
       ) : (
-        <input type="text" name={name} id={name} />
+        <input
+          type="text"
+          name={name}
+          id={name}
+          value={value || ''}
+          onChange={evn =>
+            dispatch(method({ name: evn.target.name, value: evn.target.value }))
+          }
+        />
       )}
     </InputGroupWrapper>
   );

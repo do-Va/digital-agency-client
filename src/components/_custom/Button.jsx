@@ -1,8 +1,16 @@
 import styled from 'styled-components/macro';
 
-const Button = ({ content, minWidth, maxWidth, minHeight, maxHeight }) => {
+const Button = ({
+  content,
+  minWidth,
+  maxWidth,
+  minHeight,
+  maxHeight,
+  method,
+}) => {
   return (
     <ButtonWrapper
+      onClick={method}
       style={{
         '--min-width': minWidth,
         '--max-width': maxWidth,

@@ -1,15 +1,18 @@
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
+
 import { mediaQuery } from '../../utils/styles-values';
 import { Image } from '../_custom';
-import imageUrl from '../../assets/contact-us.png';
 import ContactUsContent from './ContactUsContent';
 
 const ContactUs = () => {
+  const { contactUs } = useSelector(store => store.contactUs);
+
   return (
     <ContactUsWrapper id="contact-us">
       <div className="max-container">
         <Image
-          url={imageUrl}
+          url={contactUs?.image}
           minWidth="203px"
           maxWidth="508px"
           margin="60px 0px 0px"

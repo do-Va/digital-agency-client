@@ -5,6 +5,7 @@ import serviceSlice from './home/serviceSlice';
 import ourTeamSlice from './home/ourTeamSlice';
 import ourWorkSlice from './home/ourWorkSlice';
 import testimonialSlice from './home/testimonialSlice';
+import contactUsSlice from './home/contactUsSlice';
 
 export {
   aboutSlice,
@@ -14,4 +15,5 @@ export {
   ourTeamSlice,
   ourWorkSlice,
   testimonialSlice,
+  contactUsSlice,
 };

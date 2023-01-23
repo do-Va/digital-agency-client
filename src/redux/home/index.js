@@ -5,6 +5,7 @@ import { getAllServiceList, getService } from './serviceSlice';
 import { getAllOurTeams } from './ourTeamSlice';
 import { getAllOurWorks } from './ourWorkSlice';
 import { getAllTestimonials } from './testimonialSlice';
+import { getContactUs } from './contactUsSlice';
 
 export {
   getAbout,
@@ -15,4 +16,5 @@ export {
   getAllTestimonials,
   getHero,
   getService,
+  getContactUs,
 };
