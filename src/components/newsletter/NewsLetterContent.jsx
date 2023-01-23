@@ -1,14 +1,14 @@
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import { Title } from '../_custom';
 import NewsLetterForm from './NewsLetterForm';
 
 const NewsLetterContent = () => {
+  const { newsLetter } = useSelector(store => store.newsLetter);
+
   return (
     <NewsLetterContentWrapper>
-      <Title
-        text="Join Our NewsLetters<br/> & get <span>Coffee Formula!</span>"
-        align="center"
-      />
+      <Title text={newsLetter?.title} align="center" />
 
       <NewsLetterForm />
     </NewsLetterContentWrapper>

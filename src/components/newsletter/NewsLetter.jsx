@@ -1,15 +1,17 @@
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import { mediaQuery } from '../../utils/styles-values';
 import { Image } from '../_custom';
-import imageUrl from '../../assets/newsletter.png';
 import NewsLetterContent from './NewsLetterContent';
 
 const NewsLetter = () => {
+  const { newsLetter } = useSelector(store => store.newsLetter);
+
   return (
     <NewsLetterWrapper>
       <div className="max-container">
         <Image
-          url={imageUrl}
+          url={newsLetter?.image}
           minWidth="203px"
           maxWidth="508px"
           margin="60px 0px 0px"

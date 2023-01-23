@@ -6,6 +6,7 @@ import ourTeamSlice from './home/ourTeamSlice';
 import ourWorkSlice from './home/ourWorkSlice';
 import testimonialSlice from './home/testimonialSlice';
 import contactUsSlice from './home/contactUsSlice';
+import newsLetterSlice from './home/newsLetterSlice';
 
 export {
   aboutSlice,
@@ -16,4 +17,5 @@ export {
   ourWorkSlice,
   testimonialSlice,
   contactUsSlice,
+  newsLetterSlice,
 };

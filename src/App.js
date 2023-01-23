@@ -13,6 +13,7 @@ import {
   getHero,
   getService,
   getContactUs,
+  getNewsLetter,
 } from './redux/home';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
     dispatch(getAllOurWorks('/our-works'));
     dispatch(getAllTestimonials('/testimonial'));
     dispatch(getContactUs('/contact-us'));
+    dispatch(getNewsLetter('/newsletter'));
   }, [dispatch]);
 
   return (

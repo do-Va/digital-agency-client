@@ -8,6 +8,7 @@ const initialState = {
   message: '',
   contactUs: [],
   contactUsLoader: true,
+  contactUsListLoader: false,
 };
 
 export const getContactUs = createAsyncThunk(
@@ -47,6 +48,19 @@ const contactUsSlice = createSlice({
     },
     [getContactUs.rejected]: (state, { payload }) => {
       state.contactUsLoader = false;
+    },
+
+    [createContactUsMember.pending]: state => {
+      state.contactUsListLoader = true;
+      state.createSuccess = false;
+    },
+    [createContactUsMember.fulfilled]: (state, { payload }) => {
+      state.contactUsListLoader = false;
+      state.createSuccess = true;
+    },
+    [createContactUsMember.rejected]: (state, { payload }) => {
+      state.contactUsListLoader = false;
+      state.createSuccess = false;
     },
   },
 });
